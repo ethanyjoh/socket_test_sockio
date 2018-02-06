@@ -1,0 +1,28 @@
+<h1>is it working?</h1>
+<button>Update</button>
+
+<h1 id="text"></h1>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+    var socket = io();
+    var button = document.querySelector('button');
+    button.onclick = function(){
+        socket.emit('update');
+    }
+
+    // socket.on('a', function(data) {
+    //     console.log('working?')
+    //     $('#text').append("<p>" + data.name + "</p>")
+    // })
+
+    socket.on('a', function(data) {
+        console.log('working?')
+        console.log(data);
+        $('#text').append("<p>" + data.name + "</p>")
+    })
+</script>
+
+    
